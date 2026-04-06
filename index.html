@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HILWANA TANI- Solusi Pertanian Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <style>
+         :root {
+            --primary: #2d5a27;
+            --earth: #8b5a2b;
+            --bg: #f9f7f2;
+        }
+        
+        body {
+            background-color: var(--bg);
+            font-family: "Inter", sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.85)), url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1350&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-wa {
+            background-color: #25d366;
+            transition: 0.3s;
+        }
+        
+        .btn-wa:hover {
+            background-color: #128c7e;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-[--primary]">
+                HILWANA <span class="text-[--earth]">TANI</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium text-gray-600 text-sm">
+                <a href="#katalog" class="hover:text-[--primary] transition">Katalog</a>
+                <a href="#fitur" class="hover:text-[--primary] transition">Keunggulan</a>
+                <a href="#ulasan" class="hover:text-[--primary] transition">Ulasan</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/6281252567737" class="btn-wa text-white px-5 py-2.5 rounded-full font-bold shadow-md text-xs sm:text-sm whitespace-nowrap">
+                    <i class="fab fa-whatsapp mr-2"></i> Chat Admin
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-[--primary] transition focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-xl z-40 transition-all duration-300 transform -translate-y-2 opacity-0">
+            <div class="flex flex-col p-6 space-y-4 font-bold text-gray-700">
+                <a href="#katalog" class="hover:text-[--primary] py-2 border-b border-gray-50">Katalog Produk</a>
+                <a href="#fitur" class="hover:text-[--primary] py-2 border-b border-gray-50">Keunggulan</a>
+                <a href="#ulasan" class="hover:text-[--primary] py-2">Testimoni Pelanggan</a>
+                <div class="pt-4 flex gap-4">
+                    <a href="https://shopee.co.id/alfathtani123" target="_blank" class="flex-1 bg-orange-600 text-white py-3 rounded-xl text-center text-xs">Toko Shopee</a>
+                    <a href="https://wa.me/6281252567737" class="flex-1 bg-green-500 text-white py-3 rounded-xl text-center text-xs">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section min-h-[350px] md:min-h-[450px] flex items-center justify-center text-center text-white px-6">
+        <div class="max-w-4xl">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-black mb-6 leading-tight drop-shadow-xl">
+                Tumbuh Bersama <span class="text-green-300">Petani</span>
+            </h1>
+            <p class="text-sm sm:text-base md:text-xl opacity-90 mx-auto italic max-w-2xl leading-relaxed">
+                Menyediakan bibit unggul, pupuk organik, dan alat tani modern berkualitas untuk hasil panen yang maksimal.
+            </p>
+        </div>
+    </header>
+
+    <section id="katalog" class="container mx-auto px-6 py-12">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-12 gap-8">
+            <div>
+                <p class="text-[--earth] font-black tracking-widest mb-2 text-xs uppercase">Pilihan Terbaik</p>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 border-l-8 border-[--earth] pl-6 leading-none">
+                    KATALOG PRODUK
+                </h2>
+            </div>
+            <div class="relative w-full lg:w-96">
+                <input type="text" id="search-input" placeholder="Cari bibit, pupuk, atau alat..." class="w-full pl-12 pr-6 py-4 bg-white border border-gray-100 rounded-2xl focus:ring-4 focus:ring-[--primary]/10 outline-none text-sm shadow-xl transition-all">
+                <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-300"></i>
+            </div>
+        </div>
+
+        <!-- CATEGORY NAVIGATION -->
+        <div id="category-nav" class="flex overflow-x-auto pb-6 mb-12 gap-3 no-scrollbar scroll-smooth">
+            <button onclick="setCategory('Semua')" class="cat-btn active whitespace-nowrap px-8 py-3 rounded-full text-xs font-black transition-all shadow-md">Semua</button>
+        </div>
+
+        <div id="product-container" class="space-y-16">
+            <p class="text-gray-400 italic text-center py-20">
+                Sedang menyinkronkan data...
+            </p>
+        </div>
+    </section>
+
+    <section id="fitur" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <p class="text-[--earth] font-black tracking-[0.3em] mb-4 text-sm">
+                    KEUNGGULAN
+                </p>
+                <h2 class="text-4xl font-black text-gray-900 mb-6">
+                    Kenapa Memilih HILWANA TANI?
+                </h2>
+                <div class="w-24 h-1.5 bg-[--primary] mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="p-10 rounded-[40px] bg-[--bg] border border-gray-100/50 hover:shadow-2xl transition duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[--primary]/5 rounded-bl-full translate-x-10 -translate-y-10 group-hover:scale-150 transition duration-700"></div>
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-[--primary] group-hover:rotate-6 transition duration-500">
+                        <i class="fas fa-certificate text-2xl text-[--primary] group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-gray-900 tracking-tight">
+                        Kualitas Premium
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Setiap produk kami telah melewati kontrol kualitas ketat untuk memastikan standar terbaik bagi lahan Anda.
+                    </p>
+                </div>
+                <div class="p-10 rounded-[40px] bg-[--bg] border border-gray-100/50 hover:shadow-2xl transition duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[--earth]/5 rounded-bl-full translate-x-10 -translate-y-10 group-hover:scale-150 transition duration-700"></div>
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-[--earth] group-hover:-rotate-6 transition duration-500">
+                        <i class="fas fa-truck-fast text-2xl text-[--earth] group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-gray-900 tracking-tight">
+                        Pengiriman Cepat
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Didukung logistik Shopee terpercaya, pesanan Anda sampai tepat waktu dalam kondisi prima.
+                    </p>
+                </div>
+                <div class="p-10 rounded-[40px] bg-[--bg] border border-gray-100/50 hover:shadow-2xl transition duration-500 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[--primary]/5 rounded-bl-full translate-x-10 -translate-y-10 group-hover:scale-150 transition duration-700"></div>
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-[--primary] group-hover:rotate-6 transition duration-500">
+                        <i class="fas fa-comments text-2xl text-[--primary] group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 text-gray-900 tracking-tight">
+                        Konsultasi Gratis
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Tim ahli kami siap membantu memberikan solusi teknis terbaik untuk setiap masalah pertanian Anda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ulasan" class="py-24 bg-gray-50 overflow-hidden relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8">
+                <div class="text-center md:text-left">
+                    <p class="text-[--earth] font-black tracking-[0.3em] mb-4 text-xs sm:text-sm uppercase leading-relaxed">Feedback Petani</p>
+                    <h2 class="text-3xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">Ulasan Pelanggan Setia</h2>
+                </div>
+                <div class="flex gap-4">
+                    <button class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl border border-gray-100 flex items-center justify-center bg-white hover:bg-[--primary] hover:text-white transition-all duration-300 shadow-xl group"><i class="fas fa-chevron-left group-hover:-translate-x-1 transition-transform"></i></button>
+                    <button class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl border border-gray-100 flex items-center justify-center bg-white hover:bg-[--primary] hover:text-white transition-all duration-300 shadow-xl group"><i class="fas fa-chevron-right group-hover:translate-x-1 transition-transform"></i></button>
+                </div>
+            </div>
+            <div id="testimonial-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+                <div class="animate-pulse bg-white p-12 rounded-[40px] border border-gray-100 shadow-sm h-72"></div>
+                <div class="animate-pulse bg-white p-12 rounded-[40px] border border-gray-100 shadow-sm h-72 hidden sm:block"></div>
+                <div class="animate-pulse bg-white p-12 rounded-[40px] border border-gray-100 shadow-sm h-72 hidden lg:block"></div>
+            </div>
+
+            <div class="text-center mt-20">
+                <a href="https://shopee.co.id/buyer/1053310576/rating" target="_blank" class="inline-flex items-center gap-4 px-8 sm:px-12 py-5 sm:py-6 bg-white border-2 border-orange-500 text-orange-600 font-black rounded-2xl hover:bg-orange-500 hover:text-white transition-all duration-500 shadow-2xl group hover:scale-105 active:scale-95">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" class="w-6 sm:w-8" alt="Shopee">
+                    <span class="text-xs sm:text-base tracking-widest">LIHAT SEMUA ULASAN DI SHOPEE</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="relative rounded-[60px] overflow-hidden bg-gradient-to-br from-[--primary] via-[#3a6d32] to-[--earth] p-10 md:p-24 text-center text-white shadow-2xl">
+                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/leaf.png')] animate-pulse"></div>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">
+                        Mulai Bertani Dengan Hasil Maksimal!
+                    </h2>
+                    <p class="text-xl opacity-90 mb-12 font-medium">
+                        Buktikan kualitas bibit dan pupuk kami. Ribuan petani telah merasakan manfaatnya!
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <a href="https://shopee.co.id/alfathtani123" target="_blank" class="bg-white text-[--primary] px-12 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all duration-300 shadow-2xl flex items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" class="w-6" alt="Shopee" /> BELI SEKARANG
+                        </a>
+                        <a href="https://wa.me/6281252567737" class="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-12 py-5 rounded-2xl font-black text-lg hover:bg-white hover:text-[--primary] transition-all duration-300 shadow-xl">
+                HUBUNGI ADMIN
+              </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 pt-20 md:pt-28 pb-12 text-gray-500">
+        <div class="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-20">
+            <div class="text-center md:text-left">
+                <div class="text-3xl font-black text-white mb-6 md:mb-8 tracking-tighter">
+                    HILWANA <span class="text-[--earth]">TANI</span>
+                </div>
+                <p class="text-xs sm:text-base leading-relaxed mb-8 opacity-70">
+                    Menyediakan solusi pertanian modern yang mengedepankan kualitas dan hasil panen yang unggul bagi seluruh petani di Indonesia.
+                </p>
+                <div class="flex justify-center md:justify-start gap-4">
+                    <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gray-900 flex items-center justify-center hover:bg-[--primary] hover:text-white transition-all duration-500 border border-gray-800"><i class="fab fa-facebook-f text-sm"></i></a>
+                    <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gray-900 flex items-center justify-center hover:bg-[--primary] hover:text-white transition-all duration-500 border border-gray-800"><i class="fab fa-instagram text-sm"></i></a>
+                    <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gray-900 flex items-center justify-center hover:bg-[--primary] hover:text-white transition-all duration-500 border border-gray-800"><i class="fab fa-youtube text-sm"></i></a>
+                </div>
+            </div>
+            <div class="text-center md:text-left">
+                <h4 class="text-white font-black mb-6 md:mb-8 tracking-widest uppercase text-[10px] md:text-xs">Akses Cepat</h4>
+                <ul class="space-y-4 md:space-y-5 text-xs md:text-sm font-medium">
+                    <li><a href="#katalog" class="hover:text-[--primary] transition">Katalog Produk</a></li>
+                    <li><a href="#fitur" class="hover:text-[--primary] transition">Keunggulan</a></li>
+                    <li><a href="#ulasan" class="hover:text-[--primary] transition">Testimoni Pelanggan</a></li>
+                    <li><a href="https://shopee.co.id/alfathtani123" target="_blank" class="text-orange-500 hover:text-orange-400 font-bold">Toko Resmi Shopee</a></li>
+                </ul>
+            </div>
+            <div class="text-center md:text-left">
+                <h4 class="text-white font-black mb-6 md:mb-8 tracking-widest uppercase text-[10px] md:text-xs">Bantuan & Info</h4>
+                <ul class="space-y-4 md:space-y-5 text-xs md:text-sm font-medium">
+                    <li><a href="#" class="hover:text-white transition">Panduan Budidaya</a></li>
+                    <li><a href="#" class="hover:text-white transition">Kebijakan Pengembalian</a></li>
+                    <li><a href="#" class="hover:text-white transition">Metode Pembayaran</a></li>
+                    <li><a href="#" class="hover:text-white transition">FAQ / Tanya Jawab</a></li>
+                </ul>
+            </div>
+            <div class="text-center md:text-left">
+                <h4 class="text-white font-black mb-6 md:mb-8 tracking-widest uppercase text-[10px] md:text-xs">Hubungi Kami</h4>
+                <div class="space-y-4 md:space-y-6 text-xs md:text-sm font-medium">
+                    <p class="flex items-start md:items-center justify-center md:justify-start gap-4">
+                        <i class="fas fa-map-marker-alt text-[--earth] text-base md:text-lg"></i>
+                        <span>Banyuwangi, Jawa Timur</span>
+                    </p>
+                    <p class="flex items-center justify-center md:justify-start gap-4">
+                        <i class="fas fa-phone text-[--earth] text-base md:text-lg"></i>
+                        <span>+62 812-5256-7737</span>
+                    </p>
+                    <p class="flex items-center justify-center md:justify-start gap-4">
+                        <i class="fas fa-envelope text-[--earth] text-base md:text-lg"></i>
+                        <span>admin@alfathtani.com</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 pt-10 md:pt-12 border-t border-gray-900 text-center text-[8px] md:text-[10px] tracking-wider uppercase opacity-40 leading-relaxed">
+            <p>
+                &copy; 2026 HILWANA TANI INDONESIA. SELURUH HAK CIPTA DILINDUNGI.<br class="md:hidden" /> DIBUAT UNTUK KEMAJUAN PERTANIAN NUSANTARA.
+            </p>
+        </div>
+    </footer>
+    </footer>
+
+    <a href="https://shopee.co.id/alfathtani123" target="_blank" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 bg-[#EE4D2D] text-white h-12 md:h-16 rounded-full flex items-center px-5 md:px-8 shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 font-black text-[10px] md:text-sm tracking-tighter">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" class="w-5 md:w-7 mr-2 md:mr-3" alt="Shopee">
+        <span>BELI DI <span class="hidden sm:inline">SHOPEE</span></span>
+    </a>
+
+    <style>
+        .cat-btn {
+            background-color: white;
+            color: #666;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .cat-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(45, 90, 39, 0.2);
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+
+    <script>
+        const SHEET_ID = "1GOFMf_wKp3xuiXkRlu2bgZfCA7aJl_yszb5iCpY42BU";
+        const GID_PRODUK = "0";
+        const GID_ULASAN = "432218498";
+
+        let productsData = [];
+        let currentCategory = "Semua";
+
+        async function fetchFromSheet(gid) {
+            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${gid}`;
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const json = JSON.parse(text.substr(47).slice(0, -2));
+                return json.table.rows;
+            } catch (e) {
+                console.error("Gagal memuat data:", e);
+                return null;
+            }
+        }
+
+        function setCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll(".cat-btn").forEach((btn) => {
+                const bText = btn.innerText.trim();
+                if (bText === cat) btn.classList.add("active");
+                else btn.classList.remove("active");
+            });
+            renderProducts(document.getElementById("search-input").value);
+            document.getElementById("katalog").scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+
+        function renderCategoryNav() {
+            const nav = document.getElementById("category-nav");
+            const categories = [...new Set(productsData.map((p) => p.category))];
+            nav.innerHTML = `<button onclick="setCategory('Semua')" class="cat-btn ${currentCategory === "Semua" ? "active" : ""} whitespace-nowrap px-6 py-2 rounded-full text-xs font-bold transition">Semua</button>`;
+            categories.forEach((cat) => {
+                nav.innerHTML += `<button onclick="setCategory('${cat}')" class="cat-btn ${currentCategory === cat ? "active" : ""} whitespace-nowrap px-6 py-2 rounded-full text-xs font-bold transition">${cat}</button>`;
+            });
+        }
+
+        function createProductCard(p) {
+            return `
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-500 group flex flex-col relative">
+                    <div class="relative aspect-square overflow-hidden bg-gray-50">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-3 left-3 bg-orange-600 text-white text-[9px] px-2.5 py-1 rounded-lg font-black shadow-lg">SHOPEE</div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-[13px] font-bold text-gray-800 line-clamp-2 leading-tight mb-3 h-9">${p.name}</h4>
+                            <p class="text-lg font-black text-[--earth] mb-5">Rp ${Number(p.price).toLocaleString("id-ID")}</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2">
+                            <a href="${p.link}" target="_blank" class="bg-orange-50 text-orange-600 py-2.5 rounded-2xl text-center font-black text-[10px] tracking-wide hover:bg-orange-600 hover:text-white transition duration-300">DETAIL PRODUK</a>
+                            <a href="https://wa.me/6281252567737?text=Halo Admin, stok ini ready: ${p.name}" class="bg-[--primary] text-white py-2.5 rounded-2xl text-center font-black text-[10px] tracking-wide hover:bg-gray-800 transition duration-300 shadow-md">TANYA STOK (WA)</a>
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        function renderProducts(filter = "") {
+            const container = document.getElementById("product-container");
+            container.innerHTML = "";
+            const filtered = productsData.filter((p) =>
+                p.name.toLowerCase().includes(filter.toLowerCase()),
+            );
+            if (filtered.length === 0) {
+                container.innerHTML =
+                    '<p class="text-center text-gray-400 py-32 font-medium">Ops! Produk yang Anda cari belum tersedia.</p>';
+                return;
+            }
+            const grouped = {};
+            filtered.forEach((p) => {
+                if (!grouped[p.category]) grouped[p.category] = [];
+                grouped[p.category].push(p);
+            });
+
+            const renderSection = (category, products, showMoreBtn) => {
+                    const section = document.createElement("div");
+                    section.innerHTML = `
+                    <div class="flex items-center justify-between mb-10">
+                        <h3 class="text-xl sm:text-2xl font-black text-gray-900 flex items-center">
+                            <span class="w-2.5 h-8 bg-[--primary] rounded-full mr-4 shadow-lg shadow-[--primary]/20"></span> ${category}
+                        </h3>
+                        ${showMoreBtn ? `<button onclick="setCategory('${category}')" class="text-[10px] font-black text-[--primary] border-2 border-[--primary]/10 px-4 py-2 sm:px-6 sm:py-3 rounded-2xl hover:bg-[--primary] hover:text-white transition duration-300 uppercase tracking-widest">Lihat Semua ${products.length} &rarr;</button>` : ""}
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-8">
+                        ${products
+                          .slice(0, currentCategory === "Semua" ? 6 : 999)
+                          .map((p) => createProductCard(p))
+                          .join("")}
+                    </div>`;
+          container.appendChild(section);
+        };
+
+        if (currentCategory === "Semua") {
+          for (const cat in grouped)
+            renderSection(cat, grouped[cat], grouped[cat].length > 5);
+        } else if (grouped[currentCategory]) {
+          renderSection(currentCategory, grouped[currentCategory], false);
+        }
+      }
+
+      async function init() {
+        const rowsProd = await fetchFromSheet(GID_PRODUK);
+        if (rowsProd) {
+          productsData = rowsProd
+            .map((row) => ({
+              name: row.c[1]?.v || "Tanpa Nama",
+              price: row.c[2]?.v || 0,
+              link: (row.c[3]?.v || "").replace(
+                /alfathtani(\b|$)/,
+                "alfathtani123",
+              ),
+              image: row.c[4]?.v,
+              category: row.c[6]?.v || "Umum",
+              aktif: row.c[7]?.v?.toUpperCase() === "YA",
+            }))
+            .filter((p) => p.aktif);
+          renderCategoryNav();
+          renderProducts();
+        }
+        document
+          .getElementById("search-input")
+          .addEventListener("input", (e) => renderProducts(e.target.value));
+
+        const rowsUlasan = await fetchFromSheet(GID_ULASAN);
+        const uBox = document.getElementById("testimonial-list");
+        if (rowsUlasan) {
+          uBox.innerHTML = "";
+          rowsUlasan.forEach((row) => {
+            const r = row.c;
+            if (r[4]?.v?.toUpperCase() === "YA") {
+              const stars = r[2]?.v || 5;
+              const date = r[3]?.v || "";
+              uBox.innerHTML += `
+                            <div class="bg-white p-8 sm:p-12 rounded-[40px] border border-gray-100 shadow-sm relative group hover:shadow-2xl transition-all duration-700 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex justify-between items-start mb-8">
+                                        <div class="text-yellow-400 text-[10px] flex gap-1.5">${'<i class="fas fa-star text-[8px] sm:text-[10px]"></i>'.repeat(stars)}</div>
+                                        <span class="text-[8px] sm:text-[10px] font-black text-gray-200 uppercase tracking-tighter sm:tracking-widest">${date}</span>
+                                    </div>
+                                    <p class="text-gray-700 font-medium italic text-xs sm:text-sm mb-10 leading-relaxed tracking-tight line-clamp-6">"${r[1]?.v}"</p>
+                                </div>
+                                <div class="flex items-center gap-5">
+                                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[--primary] to-[#3a6d32] flex items-center justify-center text-white font-black text-xs sm:text-lg shadow-xl">${r[0]?.v?.charAt(0) || "P"}</div>
+                                    <div>
+                                        <p class="font-black text-gray-900 uppercase text-[10px] sm:text-[12px] tracking-widest">${r[0]?.v}</p>
+                                        <p class="text-[8px] sm:text-[10px] text-gray-400 font-bold uppercase mt-1">Petani Terverifikasi</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-quote-right absolute top-10 right-10 text-gray-50 text-4xl sm:text-7xl group-hover:text-[--primary]/5 transition-colors duration-700 pointer-events-none opacity-50"></i>
+                            </div>`;
+            }
+          });
+        }
+      }
+
+      // Mobile Menu Toggle logic
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+              mobileMenu.classList.remove('opacity-0', '-translate-y-2');
+              menuToggle.querySelector('i').classList.replace('fa-bars', 'fa-times');
+            }, 10);
+          } else {
+            mobileMenu.classList.add('opacity-0', '-translate-y-2');
+            menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            setTimeout(() => {
+              mobileMenu.classList.add('hidden');
+            }, 300);
+          }
+        });
+        
+        // Close menu when clicking links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('opacity-0', '-translate-y-2');
+            menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+          });
+        });
+      }
+      
+      window.onload = init;
+    </script>
+</body>
+
+</html>
+l>
