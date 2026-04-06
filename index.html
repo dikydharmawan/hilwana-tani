@@ -4,7 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HILWANA TANI- Solusi Pertanian Modern</title>
+    <title>HILWANA TANI - Solusi Pertanian Modern & Hasil Panen Maksimal</title>
+    <meta name="description" content="HILWANA TANI - Toko pertanian terpercaya di Banyuwangi. Menyediakan bibit unggul, pupuk organik, dan alat tani berkualitas dengan harga terjangkau. Beli sekarang di Shopee!" />
+    <meta name="keywords" content="hilwana tani, toko pertanian banyuwangi, bibit unggul, pupuk organik, alat tani modern, alfath tani" />
+    <meta property="og:title" content="HILWANA TANI - Solusi Pertanian Modern" />
+    <meta property="og:description" content="Tumbuh bersama petani dengan bibit, pupuk, dan alat tani terbaik." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:url" content="https://hilwana-tani.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <style>
@@ -283,6 +290,11 @@
         <span>BELI DI <span class="hidden sm:inline">SHOPEE</span></span>
     </a>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-24 right-6 md:bottom-32 md:right-10 z-50 bg-white/80 backdrop-blur-md text-[--primary] w-10 h-10 md:w-14 md:h-14 rounded-2xl shadow-xl flex items-center justify-center border border-gray-100 opacity-0 invisible hover:bg-[--primary] hover:text-white transition-all duration-500 transform translate-y-10 group">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <style>
         .cat-btn {
             background-color: white;
@@ -499,6 +511,22 @@
         });
       }
       
+      
+      // Scroll to Top Logic
+      const scrollBtn = document.getElementById('scrollToTop');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 500) {
+          scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+          scrollBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
+        } else {
+          scrollBtn.classList.add('opacity-0', 'invisible', 'translate-y-10');
+          scrollBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
+        }
+      });
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
       window.onload = init;
     </script>
 </body>
