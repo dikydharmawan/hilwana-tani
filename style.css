@@ -1,0 +1,49 @@
+:root {
+    --primary: #2d5a27;
+    --earth: #8b5a2b;
+    --bg: #f9f7f2;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.85)), url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1350&q=80");
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-wa {
+    background-color: #25d366;
+    transition: 0.3s;
+}
+
+.btn-wa:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+}
+
+.cat-btn {
+    background-color: white;
+    color: #666;
+    border: 1px solid #f0f0f0;
+}
+
+.cat-btn.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(45, 90, 39, 0.2);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
