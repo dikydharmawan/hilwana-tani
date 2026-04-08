@@ -10,6 +10,44 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Navbar Custom Styles */
+.nav-glass {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.logo-text {
+    letter-spacing: -0.05em;
+}
+
+#mobile-menu {
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
 .hero-section {
     background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.85)), url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1350&q=80");
     background-size: cover;
